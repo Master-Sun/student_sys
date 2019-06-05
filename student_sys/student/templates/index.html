@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学员管理系统</title>
+</head>
+<body>
+<h1>学员管理系统</h1>
+<hr>
+<ul>
+    {% for student in students %}
+{#        直接显示status对应的文字#}
+        <li>{{ student.name }} - {{ student.get_status_display }}</li>
+    {% endfor %}
+</ul>
+<hr>
+<form action="/" method="post">
+    {% csrf_token %}
+{#    直接渲染自定的form表单#}
+    {{ form }}
+    <button>提交</button>
+</form>
+</body>
+</html>
